@@ -17,7 +17,8 @@ class IllustsController < ApplicationController
 
   def show
     @illust = Illust.find(params[:id])
-    @post_favorutes = @illust.favorites
+    @favorites = @illust.favorites
+    @illust_comment = IllustComment.new
     if params[:tag_name]
     @illusts = Illust.tagged_with("#{params[:tag_name]}")
     end

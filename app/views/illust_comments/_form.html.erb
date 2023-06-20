@@ -1,0 +1,8 @@
+<%= form_with(model:[@illust, @illust_comment]) do |f| %>
+    <!--エラーメッセージ-->
+    <!--<div id="comments-error">-->
+    <%= render 'layouts/error_messages', model: f.object %>
+    <!--</div>-->
+    <%= f.text_area :illust_comment, rows:'5',placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>

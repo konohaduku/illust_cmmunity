@@ -4,7 +4,6 @@ class Illust < ApplicationRecord
      belongs_to :user
      has_many :illust_comments, dependent: :destroy
      has_many :favorites, dependent: :destroy
-    
 
      belongs_to :product
 

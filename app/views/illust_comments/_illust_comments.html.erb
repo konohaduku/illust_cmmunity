@@ -1,0 +1,14 @@
+<% if @illust.illust_comments.present? %>
+  <p>コメント件数：<%= @illust.illust_comments.count %></p>
+  <% @illust.illust_comments.each do |illust_comment| %>
+    <%= illust_comment.user.name %>
+    <%= illust_comment.created_at.strftime('%Y/%m/%d') %><%= illust_comment.illust_comment %>
+    <% if illust_comment.user == current_user %>
+      <div class="illust_comment-delete">
+        <%= link_to "削除", illust_illust_comment_path(illust_comment.illust, illust_comment), method: :delete, local: true, data: {confirm: "本当に削除しますか？"} %>
+      </div>
+    <% end %>
+  <% end %>
+  <% else %>
+  <p>コメントはまだありません</p>
+  <% end %>
