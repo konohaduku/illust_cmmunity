@@ -6,7 +6,7 @@
         <table>
           <tr>
             <th>画像</th>
-            <td><%= f.file_field :illust_images, multiple: true %></td>
+            <td><%= f.file_field :illust_images, multiple: true, accept: "image/*" %></td>
           </tr>
           <tr>
             <th>タイトル</th>

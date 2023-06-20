@@ -4,16 +4,16 @@ class Illust < ApplicationRecord
      belongs_to :user
      has_many :illust_comments, dependent: :destroy
      has_many :favorites, dependent: :destroy
+    
 
-     # mount_uploader :illust_image, ImageUploader
      belongs_to :product
 
   validates :illust_name,presence:true
   validates :illust_body,presence:true,length:{maximum:200}
 
-  def favorited_by?(user)
-    favorites.exists?(user_id: user.id)
-  end
+def favorited?(user)
+favorites.where(user_id: user.id).exists?
+end
 
 def get_illust_image(width, height)
     unless illust_images.attached?
@@ -22,7 +22,5 @@ def get_illust_image(width, height)
     end
     illust_images.variant(resize_to_limit: [width, height]).processed
 end
-
-
 
 end

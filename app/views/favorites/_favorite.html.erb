@@ -1,4 +1,4 @@
-<% if illust.favorited_by?(current_user) %>
+<% if illust.favorited?(current_user) %>
 <%= link_to illust_favorites_path(illust), method: :delete, remote: true do %>
  <font color=#dc143c><i class="fa-solid fa-heart"> <%= illust.favorites.count %></i></font>
 <% end %>

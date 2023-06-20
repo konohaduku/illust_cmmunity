@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @illust = Illust.find(params[:illust_id])
+   @illust = Illust.find(params[:illust_id])
     favorite = current_user.favorites.find_by(illust_id: @illust.id)
     favorite.destroy
   end

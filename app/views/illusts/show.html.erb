@@ -17,8 +17,9 @@
           <% end %>
 
   <%= render 'illusts/tag_list', tag_list: @illust.tag_list, class: "" %>
-  <td id="favorite_buttons_%= @illust.id %>">
-    <%= render "favorites/favorite", illust: @illust %>
+    　<div id="favorite_buttons_<%= @illust %>">
+　　　<%= render "favorites/favorite", illust: @illust %>
+　　</div>
       </div>
       </div>
 
@@ -28,11 +29,11 @@
      <% end %>
   </div>
 <!--<div>-->
-  <!--コメント件数：%= @book.book_comments.count %>-->
-  <!--%= render 'book_comments/form', book: @book, book_comment: @book_comment %>-->
+  <!--コメント件数：%= @illust.illust_comments.count %>-->
+  <!--%= render 'illust_comments/form', illust: @illust, illust_comment: @illust_comment %>-->
 
   <!--<div class="comments_area">-->
-  <!--%= render 'book_comments/book_comment', book: @book %>-->
+  <!--%= render 'illust_comments/illust_comment', illust: @illust %>-->
 <!--</div>-->
 <!--</div>-->
 
