@@ -57,7 +57,7 @@ class IllustsController < ApplicationController
 
   private
   def illust_params
-    params.require(:illust).permit(:illust_name, :illust_body, :is_active, :tag_list, illust_images: []).merge(user_id: current_user.id)
+    params.require(:illust).permit(:illust_name, :illust_body, :is_active, :tag_list, illust_images: [])
   end
 
 
