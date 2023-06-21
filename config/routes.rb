@@ -2,7 +2,8 @@ Rails.application.routes.draw do
  root to: 'homes#top'
   get "home/about"=>"homes#about", as: "about"
  devise_for :users
- devise_for :admins
+ devise_for :admins, controllers: {sessions: 'admins/sessions'}
+
  resources :users, only: [:index,:show,:edit,:update]
   resources :illusts, only: [:new,:index,:show,:edit,:create,:destroy,:update]do
   resource :favorites, only: [:create, :destroy]
