@@ -12,6 +12,11 @@ class User < ApplicationRecord
    validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
 
    validates :introduction, length: { maximum: 50}
+   
+   
+     def following?(user)
+    followings.include?(user)
+     end
 
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|

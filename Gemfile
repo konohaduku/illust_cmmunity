@@ -65,3 +65,6 @@ gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
 gem 'jquery-rails'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
