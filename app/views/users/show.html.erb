@@ -19,28 +19,32 @@
   <% end %>
 </div>
 </div>
-
-
-  <!--  follows-->
-  <!--  %= link_to user_followings_path(user) do %>-->
-  <!--    %= user.followings.count %>-->
-  <!--  % end %>-->
-
-  <!--  followers-->
-  <!--  %= link_to user_followers_path(user) do %>-->
-  <!--    %= user.followers.count %>-->
-  <!--    % end %>-->
-
-  <!--% unless user == current_user %>-->
-  <!-- % if current_user.following?(user) %>-->
-  <!--      <td>%= link_to "フォローを解除", user_relationships_path(user.id), method: :delete %></td>-->
-  <!--% else %>-->
-  <!--      <td>%= link_to "フォローする", user_relationships_path(user.id), method: :post %></td>-->
-  <!-- % end %>-->
-  <!--% end %>-->
+<table>
+  <tr>
+    <th>フォロー</th>
+    <th><%= link_to user_followings_path(@user) do %>
+      <%= @user.followings.count %>
+    <% end %></th>
+  </tr>
+  <tr>
+    <th>フォロワー</th>
+    <th><%= link_to user_followers_path(@user) do %>
+      <%= @user.followers.count %>
+      <% end %></th>
+  </tr>
+  <tr>
+  <% unless @user == current_user %>
+   <% if current_user.following?(@user) %>
+        <td><%= link_to "フォローを解除", user_relationships_path(@user), method: :delete %></td>
+        <% else %>
+        <td><%= link_to "フォローする", user_relationships_path(@user), method: :post %></td>
+   <% end %>
+  <% end %>
+  </tr>
+  </table>
 
     </div>
       <h3> 作品一覧</h3>
       <%= render 'illusts/index', illusts: @illusts %>
-    <!--</div>-->
+    
 </div>
