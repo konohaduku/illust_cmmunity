@@ -19,8 +19,8 @@
 
     <table class="table table-striped">
       <%= link_to(@illust.user) do %>
-      <%= image_tag @illust.user.get_profile_image(50, 50) %>
-      <%= @illust.user.name %>
+      <!--%= image_tag @illust.user.get_profile_image(50, 50) %>-->
+      <!--%= @illust.user.name %>-->
       <% end %>
     <h4><%= @illust.illust_name %></h4><br>
         <%= @illust.illust_body %><br>
@@ -31,12 +31,13 @@
           <% end %>
 
     <%= render 'illusts/tag_list', tag_list: @illust.tag_list, class: "" %>
-      　<div id="favorite_buttons_<%= @illust %>">
+
+      　<div id="favorite_buttons_<%= @illust.id %>">
   　　<%= render "favorites/favorite", illust: @illust %>
   　　</div>
 
   　　<div class="new-illust_comment">
-      <%= render 'illust_comments/form', illust: @illust, comment: @comment %>
+      <%= render 'illust_comments/form', illust: @illust, illust_comments: @illust_comments %>
     </div>
     <!--コメント一覧部分-->
     <div class="illust_comments">
