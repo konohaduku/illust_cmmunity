@@ -4,8 +4,9 @@ class Illust < ApplicationRecord
      belongs_to :user
      has_many :illust_comments, dependent: :destroy
      has_many :favorites, dependent: :destroy
+     attachment :illust_image_id
 
-     belongs_to :product
+
 
   validates :illust_name,presence:true
   validates :illust_body,presence:true,length:{maximum:200}
