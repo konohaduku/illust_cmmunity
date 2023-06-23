@@ -1,0 +1,14 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-1">
+  <div class="search_form">
+    <%= form_with url: search_path, local: true, method: :get do |f| %>
+      <%= f.text_field :word, class: "form-control custom-input" %>
+      <%= f.select :range, options_for_select([['User'], ['Illust']]) %>
+      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+      <%= f.submit "検索", class: "custom-input" %>
+    <% end %>
+  </div>
+  </div>
+  </div>
+</div>

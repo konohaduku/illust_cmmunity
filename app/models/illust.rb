@@ -23,4 +23,18 @@ def get_illust_image(width, height)
     illust_images.variant(resize_to_limit: [width, height]).processed
 end
 
+def self.looks(search, word)
+    if search == "perfect_match"
+      @illust = Illust.where("title LIKE?","#{word}")
+    elsif search == "forward_match"
+      @illust = Illust.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @illust = Illust.where("title LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @illust = Illust.where("title LIKE?","%#{word}%")
+    else
+      @illust = Illust.all
+    end
+end
+
 end

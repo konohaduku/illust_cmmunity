@@ -11,10 +11,12 @@
 	  プロフィール<br>
 	  <%= @user.introduction %>
 	  </div>
+	  <% if @user == current_user %>
 <% if @user.name != "guestuser" %>
 	  <div class='row'>
   <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
     プロフィールを編集
+  <% end %>
   <% end %>
   <% end %>
 </div>
@@ -33,6 +35,7 @@
       <% end %></th>
   </tr>
   <tr>
+  <% if user_signed_in? %>
   <% unless @user == current_user %>
    <% if current_user.following?(@user) %>
         <td><%= link_to "フォローを解除", user_relationships_path(@user), method: :delete %></td>
@@ -40,11 +43,11 @@
         <td><%= link_to "フォローする", user_relationships_path(@user), method: :post %></td>
    <% end %>
   <% end %>
+  <% end %>
   </tr>
   </table>
+</div>
 
-    </div>
       <h3> 作品一覧</h3>
       <%= render 'illusts/index', illusts: @illusts %>
-    
 </div>
