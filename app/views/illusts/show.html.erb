@@ -15,12 +15,15 @@
   <div class="col-lg-4">
     <% if @illust.user == current_user %>
     <%= link_to '編集', edit_illust_path(@illust), class: "btn btn-outline-secondary btn-block" %>
+    <% end %>
+    <%if admin_signed_in? %>
+   <%= link_to "管理者が削除するよ", admin_illust_path(@illust), method: :delete %>
      <% end %>
 
     <table class="table table-striped">
       <%= link_to(@illust.user) do %>
       <!--%= image_tag @illust.user.get_profile_image(50, 50) %>-->
-      <%= @illust.user.name %>
+      <!--%= @illust.user.name %>-->
       <% end %>
     <h4><%= @illust.illust_name %></h4><br>
         <%= @illust.illust_body %><br>

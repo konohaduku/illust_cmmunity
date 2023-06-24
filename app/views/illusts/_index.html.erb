@@ -1,23 +1,13 @@
-<% illusts.each do |illust| %>
-    <tr>
-   <td>
-    <div class="img-container">
-       <%= link_to illust_path(illust.id) do %>
-          <% illust.illust_images.each do |illust_image| %>
-           <%= image_tag(illust_image, width:100, height:100) %>
-          <% end %>
-        <% end %>
-    </div>
-        </td>
-    <!--<td>%= link_to illust.illust_name,illust %></td>-->
-    <!--<td>%= render 'illusts/tag_list', tag_list: illust.tag_list %></td>-->
-
-
-        　<!--<td id="favorite_buttons_%= illust.id %>">-->
-    <td>
-　　　<!--%= render "favorites/favorite", illust: illust %>-->
-　　　</td>
-　　</td>
-     <!--<td><i class="fa-regular fa-comment"> %= "#{illust.illust_comments.count} "%></i></td>-->
-      </tr>
-      <% end %>
+<div class="container">
+  <ul class="clearfix">
+    <li><% illusts.each do |illust| %>
+          <!--<div class="img-container3">-->
+             <%= link_to illust_path(illust.id) do %>
+                <% illust.illust_images.each do |illust_image| %>
+                 <%= image_tag(illust_image, width:400, height:350) %>
+                <% end %>
+              <% end %>
+          <!--</div>-->
+    <% end %></li>
+  </ul>
+</div>

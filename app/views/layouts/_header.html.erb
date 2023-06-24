@@ -25,12 +25,19 @@
           <li>
             <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
              ログアウト
-            <% end %>
-            <% elsif admin_signed_in? %>
-             <li>
-              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-             </li>
           </li>
+            <% end %>
+        <% elsif admin_signed_in? %>
+            <li>
+            <%=  link_to illusts_path ,class: 'nav-link text-light' do %>
+              作品一覧
+            </li>
+            <% end %>
+             <li>
+            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
+             ログアウト
+             </li>
+            <% end %>
         <% else %>
           <li>
             <%= link_to root_path,class: 'nav-link text-light' do %>

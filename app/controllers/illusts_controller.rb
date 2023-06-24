@@ -1,6 +1,6 @@
 class IllustsController < ApplicationController
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
-  
+  # before_action :ensure_correct_user, only: [:edit, :update]
+
   def new
     @illust=Illust.new
 
@@ -15,6 +15,7 @@ class IllustsController < ApplicationController
 
   def edit
     @illust = Illust.find(params[:id])
+
   end
 
   def show
@@ -51,7 +52,7 @@ class IllustsController < ApplicationController
   def destroy
     @illust = Illust.find(params[:id])
     @illust.destroy
-    redirect_to illusts_path
+    redirect_to illust_path
   end
 
 
