@@ -15,8 +15,9 @@
     <tbody>
       <% @illusts.each do |illust| %>
         <tr>
-          <td><%= illust.title %></td>
-          <td><%= illust.body %></td>
+          <%= link_to (@search.user) do %>
+          <td><%= illust.illust_name %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

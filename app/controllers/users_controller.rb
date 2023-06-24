@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
   before_action :ensure_guest_user, only: [:edit]
-  
+  before_action :admin_user,     only: [:destroy]
+
   def index
+    @users=User.all
+    # @user=User.find(params[:id])
   end
 
   def edit
@@ -11,7 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find(params[:id])
-    @illusts = @user.illust
+    @illusts = @user.illust.page(params[:page])
   end
 
   def create
@@ -27,6 +30,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user=User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
   end
 
   private
@@ -46,5 +52,9 @@ class UsersController < ApplicationController
     if @user.name == "guestuser"
       redirect_to user_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
+  end
+
+  def if_not_admin
+    　　redirect_to root_path unless current_user.admin?
   end
 end

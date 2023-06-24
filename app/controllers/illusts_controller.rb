@@ -1,5 +1,7 @@
 class IllustsController < ApplicationController
-  # before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :ensure_guest_user, only: [:edit]
+  before_action :admin_user,     only: [:destroy]
 
   def new
     @illust=Illust.new
@@ -7,9 +9,9 @@ class IllustsController < ApplicationController
   end
 
   def index
-    @illusts=Illust.all
+    @illusts=Illust.page(params[:page])
     if params[:tag_name]
-    @illusts = Illust.tagged_with("#{params[:tag_name]}")
+    @illusts = Illust.tagged_with("#{params[:tag_name]}").page(params[:page])
     end
   end
 
@@ -32,7 +34,7 @@ class IllustsController < ApplicationController
     @illust = Illust.new(illust_params)
     @illust.user_id = current_user.id
     if @illust.save
-      flash[:notice] = "You have created illust successfully."
+      flash[:notice] = "投稿が完了しました"
       redirect_to illusts_path(@illust)
     else
       @illust = Illust.new
@@ -52,7 +54,7 @@ class IllustsController < ApplicationController
   def destroy
     @illust = Illust.find(params[:id])
     @illust.destroy
-    redirect_to illust_path
+    redirect_to illusts_path
   end
 
 
@@ -62,6 +64,10 @@ class IllustsController < ApplicationController
   private
   def illust_params
     params.require(:illust).permit(:illust_name, :illust_body, :is_active, :tag_list, illust_images: [])
+  end
+  
+  def if_not_admin
+    　　redirect_to root_path unless current_user.admin?
   end
 
 

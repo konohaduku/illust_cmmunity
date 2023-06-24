@@ -13,6 +13,11 @@
             <% end %>
           </li>
           <li>
+            <%=  link_to users_path ,class: 'nav-link text-light' do %>
+              ユーザー一覧
+            <% end %>
+          </li>
+          <li>
             <%=  link_to illusts_path ,class: 'nav-link text-light' do %>
               作品一覧
             <% end %>
@@ -25,19 +30,8 @@
           <li>
             <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
              ログアウト
+            <% end %>
           </li>
-            <% end %>
-        <% elsif admin_signed_in? %>
-            <li>
-            <%=  link_to illusts_path ,class: 'nav-link text-light' do %>
-              作品一覧
-            </li>
-            <% end %>
-             <li>
-            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
-             ログアウト
-             </li>
-            <% end %>
         <% else %>
           <li>
             <%= link_to root_path,class: 'nav-link text-light' do %>

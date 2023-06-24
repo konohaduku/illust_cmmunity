@@ -4,7 +4,7 @@ Rails.application.routes.draw do
  devise_for :users
  devise_for :admins, controllers: {sessions: 'admins/sessions'}
 
- resources :users, only: [:index,:show,:edit,:update]do
+ resources :users, only: [:index,:show,:edit,:update,:destroy]do
  resource :relationships, only: [:create, :destroy]
     get "followings" => "relationships#followings", as: "followings"
     get "followers" => "relationships#followers", as: "followers"
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
  namespace :admin do
   root to: 'homes#top'
-  resources :users, only: [:index,:show]
+  resources :users, only: [:index,:show,:destroy]
    resources :illusts, only: [:index,:show,:destroy]do
   resource :favorites, only: [:create, :destroy]
   resources :illust_comments, only: [:create, :destroy]
