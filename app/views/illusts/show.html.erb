@@ -8,7 +8,24 @@
             <%= image_tag image %>
           <% end %>
         <% end %><br>
-        <h4><%= @illust.illust_name %></h4><br>
+
+      </div>
+      </div>
+
+  <div class="col-lg-4">
+    <% if @illust.user == current_user %>
+    <%= link_to '編集', edit_illust_path(@illust), class: "btn btn-outline-secondary btn-block" %>
+    <% end %>
+    <% if current_user.admin? %>
+   <%= link_to "管理者が削除するよ", illust_path(@illust), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-secondary btn-block"%>
+     <% end %>
+
+    <table class="table table-striped">
+      <%= link_to(@illust.user) do %>
+      <%= image_tag @illust.user.get_profile_image(50, 50) %>
+      <%= @illust.user.name %>
+      <% end %>
+    <h4><%= @illust.illust_name %></h4><br>
         <%= @illust.illust_body %><br>
          <% if @illust.is_active == true %>
           #AIイラストです
@@ -16,25 +33,31 @@
           #AIイラストではありません
           <% end %>
 
-  <%= render 'illusts/tag_list', tag_list: @illust.tag_list, class: "" %>
-    　<div id="favorite_buttons_<%= @illust %>">
-　　　<%= render "favorites/favorite", illust: @illust %>
-　　</div>
-      </div>
-      </div>
+    <%= render 'illusts/tag_list', tag_list: @illust.tag_list, class: "" %>
 
-  <div class="col-lg-4">
-    <% if @illust.user == current_user %>
-    <%= link_to '編集', edit_illust_path(@illust), class: "btn btn-outline-secondary btn-block" %>
-     <% end %>
-  </div>
-<div class="new-illust_comment">
-  <%= render 'illust_comments/form', illust: @illust, comment: @comment %>
-</div>
-<!--コメント一覧部分-->
-<div class="illust_comments">
-  <%= render 'illust_comments/illust_comments', illust: @illust %>
-</div>
+      <% if user_signed_in? %>
+      　<div id="favorite_buttons_<%= @illust.id %>">
+  　　<%= render "favorites/favorite", illust: @illust %>
+  　　</div>
+
+  　　<div class="new-illust_comment">
+      <%= render 'illust_comments/form', illust: @illust, illust_comments: @illust_comments %>
+    </div>
+
+     <div class="illust_comments">
+      <%= render 'illust_comments/illust_comments', illust: @illust %>
+    </div>
+
+    <% elsif admin_signed_in? %>
+    <!--コメント一覧部分-->
+    <div class="illust_comments">
+      <%= render 'illust_comments/illust_comments', illust: @illust %>
+    </div>
+    <% end %>
+    </table>
+
+    </div>
+
   </div>
 </div>
 

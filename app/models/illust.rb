@@ -4,8 +4,9 @@ class Illust < ApplicationRecord
      belongs_to :user
      has_many :illust_comments, dependent: :destroy
      has_many :favorites, dependent: :destroy
+    # attachment :illust_image_id
 
-     belongs_to :product
+
 
   validates :illust_name,presence:true
   validates :illust_body,presence:true,length:{maximum:200}
@@ -20,6 +21,20 @@ def get_illust_image(width, height)
       illust_images.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     illust_images.variant(resize_to_limit: [width, height]).processed
+end
+
+def self.looks(search, word)
+    if search == "perfect_match"
+      @illust = Illust.where("title LIKE?","#{word}")
+    elsif search == "forward_match"
+      @illust = Illust.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @illust = Illust.where("title LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @illust = Illust.where("title LIKE?","%#{word}%")
+    else
+      @illust = Illust.all
+    end
 end
 
 end

@@ -11,13 +11,13 @@
   		  <%= f.label"説明" %>
   		  <%= f.text_area :illust_body, class: "form-control custom-input" %>
         <%= f.label"タグ (、で区切ると複数タグ登録できます)" %>
-        <%= f.text_field :name,value: @tag_list,class:"form-control"%>
+        <%= f.text_field :tag_list,value: @tag_list,class:"form-control"%>
       </div>
 
     　<!--<div class="actions" style="margin:20px 0;">-->
         <%= f.submit "完了",class:"btn btn-outline-primary btn-block" %>
-        <%= link_to '作品を削除', @illust, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-secondary btn-block"%>
-        
+        <%= link_to '作品を削除', illust_path(@illust), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-secondary btn-block"%>
+
       <!--</div>-->
       <% end %>
 

@@ -1,0 +1,19 @@
+ja:
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
+
+ja:
+  activerecord:
+    models:
+    illust: "作品"
+    attributes:
+      illust:
+      illust_image: "画像"
+      illust_naame: "タイトル"
+      illust_body: "概要"
+      tag_name: "タグ"
