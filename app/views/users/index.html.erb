@@ -4,11 +4,11 @@
      <table class="table table-hover table-inverse">
       <tbody>
       <% @users.each do |user| %>
-          <%= link_to user_path(@user) do %>
+          <!--%= link_to user_path(user) do %>-->
           <tr>
             <th><%= image_tag user.get_profile_image(50, 50) %></th>
-            <td><%= user.name %></td>
-          <% end %>
+            <td><%= link_to user.name, user %></td>
+          <!--% end %>-->
             <% if current_user.admin? %>
             <td><%= link_to "管理者が削除するよ", users_path(@user), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-secondary "%>
             </td>
