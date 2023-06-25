@@ -6,16 +6,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/f769a1e320.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
      <%= render 'layouts/header' %>
-   <!-- % if user_signed_in? %>-->
-   <!--%= render 'searches/search' %>-->
-   <!--% end %>-->
+    <% if user_signed_in? %>
+   <%= render 'searches/search' %>
+   <% end %>
       <main>
 
         <p id="notice"><%= notice %></p>

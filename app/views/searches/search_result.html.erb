@@ -1,0 +1,25 @@
+<h2>検索結果</h2>
+
+<table class="table table-hover table-inverse">
+  <% if @range == "User" %>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <%= link_to (@search.user) do %>
+          <td><%= user.name %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <tbody>
+      <% @illusts.each do |illust| %>
+        <tr>
+          <%= link_to (@search.user) do %>
+          <td><%= illust.illust_name %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>
