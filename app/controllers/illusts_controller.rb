@@ -63,9 +63,9 @@ class IllustsController < ApplicationController
 
   private
   def illust_params
-    params.require(:illust).permit(:illust_name, :illust_body, :is_active, :tag_list, illust_images: [])
+    params.require(:illust).permit(:illust_name, :illust_body, :is_active, :tag_list, illust_images_images: [])
   end
-  
+
   def if_not_admin
     　　redirect_to root_path unless current_user.admin?
   end
