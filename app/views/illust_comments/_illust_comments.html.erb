@@ -1,14 +1,18 @@
-<% if @illust.illust_comments.present? %>
-  <p>コメント件数：<%= @illust.illust_comments.count %></p>
-  <% @illust.illust_comments.each do |illust_comment| %>
-    <%= illust_comment.user.name %>
-    <%= illust_comment.created_at.strftime('%Y/%m/%d') %><%= illust_comment.illust_comment %>
+<!--% if illust.illust_comments.present? %>-->
+  <p>コメント件数：<span id="comment_count"><%= @illust.illust_comments.count %></p>
+  <% illust.illust_comments.each do |illust_comment| %>
+    <div class="text4-section">
+  <strong><p class="text4-name"><%= illust_comment.user.name %></p></strong>
+  <time class="text4-date"><%= illust_comment.created_at.strftime('%Y/%m/%d') %></time>
+  <%= illust_comment.illust_comment %>
+</div>
     <% if illust_comment.user == current_user %>
       <div class="illust_comment-delete">
-        <%= link_to "削除", illust_illust_comment_path(illust_comment.illust, illust_comment), method: :delete, local: true, data: {confirm: "本当に削除しますか？"} %>
+        <%= link_to  illust_illust_comment_path(illust_comment.illust, illust_comment), method: :delete,class: "btn btn-sm ",remote:true, data: {"turbolinks" => false} do %>
+        <i class="fas fa-trash" style="color: #dba9d9;"></i>
+        <% end %>
       </div>
     <% end %>
-  <% end %>
-  <% else %>
-  <p>コメントはまだありません</p>
+  <!--% else %>-->
+  <!--<p>コメントはまだありません</p>-->
   <% end %>

@@ -1,0 +1,2 @@
+$('#illust-comments').html("<%= j(render "illust_comments/illust_comments", illust: @illust) %>");
+$('#comment_count').html("<%= @illust.illust_comments.count %>")

@@ -5,9 +5,11 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <%= link_to (@search.user) do %>
-          <td><%= user.name %></td>
-          <% end %>
+          <!--%= link_to (@search.user) do %>-->
+          <th></th>
+          <td><%= image_tag user.get_profile_image(50, 50) %></td>
+          <td><%= link_to user.name, user %></td>
+          <!--% end %>-->
         </tr>
       <% end %>
     </tbody>
@@ -15,9 +17,12 @@
     <tbody>
       <% @illusts.each do |illust| %>
         <tr>
-          <%= link_to (@search.user) do %>
+          <%= link_to illust_path(illust.id) do %>
+                <% illust.illust_images.each do |illust_image| %>
+                 <%= image_tag(illust_image, width:400, height:350) %>
+                <% end %>
+              <% end %>
           <td><%= illust.illust_name %></td>
-          <% end %>
         </tr>
       <% end %>
     </tbody>

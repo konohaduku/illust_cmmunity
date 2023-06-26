@@ -25,13 +25,13 @@ end
 
 def self.looks(search, word)
     if search == "perfect_match"
-      @illust = Illust.where("title LIKE?","#{word}")
+      @illust = Illust.where("illust_name LIKE?","#{word}")
     elsif search == "forward_match"
-      @illust = Illust.where("title LIKE?","#{word}%")
+      @illust = Illust.where("illust_name LIKE?","#{word}%")
     elsif search == "backward_match"
-      @illust = Illust.where("title LIKE?","%#{word}")
+      @illust = Illust.where("illust_name LIKE?","%#{word}")
     elsif search == "partial_match"
-      @illust = Illust.where("title LIKE?","%#{word}%")
+      @illust = Illust.where("illust_name LIKE?","%#{word}%")
     else
       @illust = Illust.all
     end

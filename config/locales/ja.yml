@@ -6,8 +6,6 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
-
-ja:
   activerecord:
     models:
     illust: "作品"
@@ -17,3 +15,9 @@ ja:
       illust_naame: "タイトル"
       illust_body: "概要"
       tag_name: "タグ"
+      # first: <i class="fad fa-chevron-double-left" style="--fa-primary-color: "#d76ac3"; --fa-secondary-color: "#d76ac3";"></i>
+      # last: <i class="fad fa-chevron-double-right" style="--fa-primary-color: "#d392d0"; --fa-secondary-color: "#d392d0";"></i>
+      # previous: <i class="fad fa-chevron-left" style="--fa-primary-color: "#b57db3"; --fa-secondary-color: "#b57db3";"></i>
+      # next: <i class="fad fa-chevron-right" style="--fa-primary-color: "#b57db3"; --fa-secondary-color: "#b57db3";"></i>
+
+

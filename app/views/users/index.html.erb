@@ -10,10 +10,10 @@
             <td><%= link_to user.name, user %></td>
           <!--% end %>-->
             <% if current_user.admin? %>
-            <td><%= link_to "管理者が削除するよ", users_path(@user), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-secondary "%>
+            <td><%= link_to "管理者が削除するよ", user_path(user), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-secondary "%>
             </td>
-          </tr>
           <% end %>
+          </tr>
       <% end %>
      </table>
   </div>
