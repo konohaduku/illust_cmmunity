@@ -34,7 +34,6 @@ class IllustsController < ApplicationController
     @illust = Illust.new(illust_params)
     @illust.user_id = current_user.id
     if @illust.save
-       @illust.save_tag(tag_list)
       flash[:notice] = "投稿が完了しました"
       redirect_to illusts_path(@illust)
     else
@@ -64,7 +63,7 @@ class IllustsController < ApplicationController
 
   private
   def illust_params
-    params.require(:illust).permit(:illust_name, :illust_body, :is_active, :tag_list, illust_images_images: [])
+    params.require(:illust).permit(:illust_name, :illust_body, :is_active, :tag_list, illust_images: [])
   end
 
   def if_not_admin
