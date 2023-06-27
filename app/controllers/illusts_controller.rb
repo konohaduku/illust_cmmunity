@@ -34,7 +34,7 @@ class IllustsController < ApplicationController
     @illust = Illust.new(illust_params)
     @illust.user_id = current_user.id
     if @illust.save
-      
+       @illust.save_tag(tag_list)
       flash[:notice] = "投稿が完了しました"
       redirect_to illusts_path(@illust)
     else
