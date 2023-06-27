@@ -1,13 +1,11 @@
 <div class="container">
   <ul class="clearfix">
     <li><% illusts.each do |illust| %>
-          <!--<div class="img-container3">-->
              <%= link_to illust_path(illust.id) do %>
                 <% illust.illust_images.each do |illust_image| %>
                  <%= image_tag(illust_image, width:400, height:350) %>
                 <% end %>
               <% end %>
-          <!--</div>-->
     <% end %></li>
   </ul>
   <div class="row">

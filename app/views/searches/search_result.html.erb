@@ -15,16 +15,13 @@
     </tbody>
   <% else %>
     <tbody>
-      <% @illusts.each do |illust| %>
-        <tr>
-          <%= link_to illust_path(illust.id) do %>
+    <% @illusts.each do |illust| %>
+             <%= link_to illust_path(illust.id) do %>
                 <% illust.illust_images.each do |illust_image| %>
                  <%= image_tag(illust_image, width:400, height:350) %>
                 <% end %>
               <% end %>
-          <td><%= illust.illust_name %></td>
-        </tr>
-      <% end %>
+    <% end %>
     </tbody>
   <% end %>
 </table>
