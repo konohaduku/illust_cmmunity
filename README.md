@@ -6,9 +6,9 @@
 - イラストの見本となる画像はno_imageと自分が描いたオリジナルのイラストを使用します。
 
 ###　使用素材
-(https://github.com/konohaduku/illust_cmmunity/assets/129601109/c38f954d-14e4-44c0-a205-9f7e4c71199a)
-(https://github.com/konohaduku/illust_cmmunity/assets/129601109/c88a4a83-feb8-4e29-ae7e-cc23e6f1a9a3)
-(https://github.com/konohaduku/illust_cmmunity/assets/129601109/68db63fb-1a00-46f4-bd92-7fa53bc8aed8)
+![イラスト41](https://github.com/DWC-Mario/nagano_cake/assets/129601109/5ed896d6-222c-4abe-8d50-d283ed8e38b8)
+![イラスト36](https://github.com/DWC-Mario/nagano_cake/assets/129601109/6326809c-fd92-43f2-b0ba-a38de819d0d2)
+![イラスト36 2](https://github.com/DWC-Mario/nagano_cake/assets/129601109/82da80a2-7ff6-4d75-bdc9-3ebd7d38fcc6)
 
 ### テーマを選んだ理由
 　このテーマを選んだ理由は昨今のAIイラストにより手描きのイラストに手が出しづらいと考える人を減らしたいと考えたためです。
