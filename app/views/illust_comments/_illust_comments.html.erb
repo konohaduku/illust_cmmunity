@@ -12,9 +12,7 @@
         <i class="fas fa-trash" style="color: #dba9d9;"></i>
         <% end %>
       </div>
-    <% end %>
-
-    <% if current_user.admin? %>
+    <% elsif current_user.admin? %>
       <div class="illust_comment-delete">
         <%= link_to  illust_illust_comment_path(illust_comment.illust, illust_comment), method: :delete,class: "btn btn-sm ",remote:true, data: {"turbolinks" => false} do %>
         <i class="fas fa-trash" style="color: #dba9d9;"></i>
