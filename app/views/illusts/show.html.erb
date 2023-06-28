@@ -20,7 +20,7 @@
    <%= link_to "管理者が削除するよ", illust_path(@illust), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-secondary btn-block"%>
      <% end %>
 
-    <table class="table table-striped">
+    <div>
       <%= link_to(@illust.user) do %>
       <%= image_tag @illust.user.get_profile_image(50, 50) %>
       <%= @illust.user.name %>
@@ -49,7 +49,7 @@
       </div>
 
     <% end %>
-    </table>
+    </div>
 
     </div>
 
