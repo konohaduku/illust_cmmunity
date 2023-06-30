@@ -1,5 +1,7 @@
 <!--% if illust.illust_comments.present? %>-->
   <p>コメント件数：<span id="comment_count"><%= @illust.illust_comments.count %></p>
+  <table>
+    <tr>
   <% illust.illust_comments.each do |illust_comment| %>
     <div class="text4-section">
   <strong><p class="text4-name"><%= illust_comment.user.name %></p></strong>
@@ -20,3 +22,5 @@
       </div>
     <% end %>
   <% end %>
+  </tr>
+</table>
